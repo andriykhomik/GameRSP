@@ -1,0 +1,32 @@
+<div class="container">
+  <div
+    [ngClass]="{
+    images: clickedId !== index,
+    chosen: clickedId === index
+    }"
+    *ngFor="let element of elements; let index = index"
+    [id]="index"
+  >
+    <p [ngClass]="{
+    title: clickedId !== index,
+    chosenTitle: clickedId === index
+    }">{{element.name}}</p>
+    <img
+      (click)= "indexOfEl(index)"
+      [src] = "element.imagePath"
+      alt="{{element.name}}"
+      class="image"
+    >
+  </div>
+  <button class="btn" (click)="checking()">Check</button>
+</div>
+<p>Computer choice
+
+</p><img [src]="choice.imagePath" class="image" *ngIf="random !== null">
+<p
+  [ngClass]="class"
+   *ngIf="message"
+>{{message}}</p>
+
+<app-video-play></app-video-play>
+
